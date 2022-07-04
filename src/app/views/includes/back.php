@@ -1,4 +1,5 @@
-
+<?php ?>
 <div>
-    <a href="/"><-- Back</a>
+    <a href="/">
+        <-- Back </a>
 </div>
