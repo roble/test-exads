@@ -1,0 +1,48 @@
+version: '3.7'
+services:
+  exads-web:
+    container_name: exads-web
+    image: nginx:latest
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d/
+      - ./public:/var/www/html/public
+    ports:
+      - "8080:8080"
+    restart: always
+  exads-php:
+    container_name: exads-php
+    image: webdevops/php-dev:7.4
+    ports:
+      - 9000:9000
+    expose:
+      - 9000
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html/
+    environment:
+      - PHP_MEMORY_LIMIT=-1
+      - PHP_DISPLAY_ERRORS=1
+    restart: always
+  composer:
+    container_name: exads-composer
+    image: "composer"
+    environment:
+      - COMPOSER_CACHE_DIR=/var/cache/composer
+    volumes:
+      - .:/app
+    command: [ "composer", "install" ]
+    restart: 'no'
+  exads-db:
+    container_name: exads-db
+    image: mariadb:latest
+    restart: always
+    environment:
+      - MARIADB_DATABASE=exads_test
+      - MARIADB_USER=root
+      - MARIADB_ROOT_PASSWORD=exads
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql/.data:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
+      - ./database:/docker-entrypoint-initdb.d

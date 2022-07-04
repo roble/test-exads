@@ -1,0 +1,21 @@
+{
+  "name": "renanroble/exads",
+  "autoload": {
+    "psr-4": {
+      "RenanRoble\\Exads\\": "src/library",
+      "App\\": "src/app"
+    }
+  },
+  "authors": [
+    {
+      "name": "Renan Roble Pereira",
+      "email": "renanroble@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "require": {
+    "exads/ab-test-data": "^1.0"
+  }
+}
