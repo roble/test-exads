@@ -1,5 +1,6 @@
 vendor/
 var/
 docker/mysql/.data
+**/.DS_Store
 .DS_Store
 .phpunit.result.cache
