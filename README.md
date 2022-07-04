@@ -4,7 +4,8 @@ I chose to use pure PHP without any framework, in my opinion, this is the best w
 
 ## Requirements
 
-- Docker ˆ4.5
+- Docker - [Docker](https://www.docker.com/)
+- Docker Compose - [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Instructions
 
